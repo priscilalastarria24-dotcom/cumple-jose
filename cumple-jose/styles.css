@@ -1,0 +1,508 @@
+:root{
+  --bg1:#0b1220;
+  --bg2:#05070d;
+  --card:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.14);
+  --txt:rgba(255,255,255,.92);
+  --muted:rgba(255,255,255,.72);
+  --primary:#4071B5;
+  --primary2:rgba(64,113,181,.22);
+  --gold:#D7802B;
+  --danger:#ff6b6b;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color:var(--txt);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(215,128,43,.28), transparent 38%),
+    radial-gradient(circle at 80% 15%, rgba(64,113,181,.38), transparent 42%),
+    radial-gradient(circle at 40% 90%, rgba(64,113,181,.22), transparent 50%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+}
+
+.wrap{
+  width:min(980px, 92vw);
+  margin: 26px auto 60px;
+}
+
+.hidden{display:none !important}
+
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  background: rgba(215,128,43,.18);
+  border: 1px solid rgba(215,128,43,.35);
+  color:#ffd8b8;
+  font-size:13px;
+  user-select:none;
+}
+
+.topActions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:18px;
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+  overflow:hidden;
+}
+
+.hero{
+  padding:22px;
+}
+
+.title{
+  margin: 8px 0 6px;
+  font-size: clamp(26px, 3vw, 38px);
+  letter-spacing: .2px;
+}
+
+.subtitle{
+  margin: 0 0 14px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.muted{ color:var(--muted); }
+
+.form{
+  display:grid;
+  gap:12px;
+  margin-top:14px;
+}
+
+.field label{
+  font-size:12px;
+  color:rgba(255,255,255,.72);
+}
+
+.field input{
+  width:100%;
+  margin-top:6px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.22);
+  color:var(--txt);
+  outline:none;
+}
+
+.btn{
+  border:1px solid rgba(255,255,255,.18);
+  background: var(--primary2);
+  color:var(--txt);
+  border-radius: 14px;
+  padding: 10px 12px;
+  cursor:pointer;
+  font-weight:800;
+  transition: transform .08s ease, background .2s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  user-select:none;
+}
+
+.btn:hover{ background: rgba(64,113,181,.32); }
+.btn:active{ transform: scale(.98); }
+
+.btn.primary{
+  background: rgba(215,128,43,.22);
+  border-color: rgba(215,128,43,.35);
+}
+.btn.primary:hover{ background: rgba(215,128,43,.30); }
+
+.btn.ghost{
+  background: rgba(255,255,255,.06);
+}
+.btn.ghost:hover{ background: rgba(255,255,255,.10); }
+
+.error{
+  margin:0;
+  min-height: 18px;
+  font-size: 13px;
+  color: var(--danger);
+}
+
+.hint{
+  font-size: 13px;
+  color: rgba(255,255,255,.65);
+}
+
+.footer{
+  margin-top:14px;
+  font-size:13px;
+  text-align:center;
+}
+
+.menu{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 10px;
+}
+
+.notice{
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.84);
+}
+
+.sectionTop{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom: 12px;
+}
+
+.sectionTitle{
+  margin:0;
+  font-size: 20px;
+}
+
+.couponGrid{
+  display:grid;
+  gap:10px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.coupon{
+  border-radius:18px;
+  padding:12px;
+  background: rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.14);
+  cursor:pointer;
+}
+
+.couponTop{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.couponTitle{
+  font-weight:1000;
+}
+
+.couponCode{
+  font-size:12px;
+  color: rgba(255,255,255,.70);
+  padding: 4px 8px;
+  border-radius:999px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  white-space:nowrap;
+}
+
+.couponDesc{
+  margin-top:8px;
+  color: rgba(255,255,255,.76);
+  font-size: 13px;
+  line-height:1.45;
+}
+
+.couponExtra{
+  display:none;
+  margin-top:10px;
+  padding:10px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  white-space: pre-wrap;
+  font-size: 13px;
+}
+
+.printNote{
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.mininos{
+  display:grid;
+  gap:10px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 12px;
+}
+@media (max-width: 640px){
+  .mininos{ grid-template-columns: 1fr; }
+}
+
+.mininoCard{
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.14);
+}
+.mininoName{
+  font-weight: 1000;
+  margin-bottom: 4px;
+}
+
+.photoGrid{
+  display:grid;
+  gap:10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.photo{
+  border-radius: 16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.18);
+  cursor:pointer;
+}
+.photo img{
+  width:100%;
+  height: 170px;
+  object-fit: cover;
+  display:block;
+}
+
+.termsList{
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255,255,255,.80);
+  line-height:1.55;
+}
+
+.finalText{
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.88);
+  line-height:1.55;
+}
+
+.finalActions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 12px;
+}
+
+/* Confetti canvas */
+#confetti{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index: 50;
+}
+
+/* Modal */
+.modal{
+  position:fixed;
+  inset:0;
+  z-index: 100;
+  display:grid;
+  place-items:center;
+}
+.modalBackdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.65);
+}
+.modalContent{
+  position:relative;
+  width:min(900px, 92vw);
+  max-height: 88vh;
+  background: rgba(20,24,34,.92);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 22px 60px rgba(0,0,0,.55);
+  overflow:auto;
+}
+.modalContent img{
+  width:100%;
+  height:auto;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.14);
+  display:block;
+}
+.modalClose{
+  position:absolute;
+  top:10px;
+  right:10px;
+  border:none;
+  background: rgba(255,255,255,.10);
+  color: var(--txt);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor:pointer;
+  font-weight: 900;
+}
+.modalCaption{
+  margin-top:10px;
+  font-size: 13px;
+}
+
+/* PRINT: imprime cupones bonito */
+@media print{
+  @page{
+    size: A4;
+    margin: 12mm;
+  }
+
+  html, body{
+    background:#fff !important;
+    color:#000 !important;
+    height:auto !important;
+    min-height:auto !important;
+  }
+
+  /* Oculta todo lo que no sea cuponera */
+  #confetti,
+  #loginView,
+  .top,
+  .hero,
+  #memories,
+  #terms,
+  #final,
+  .printNote{
+    display:none !important;
+  }
+
+  /* Quita márgenes grandes del layout web */
+  .wrap{
+    width:auto !important;
+    margin:0 !important;
+  }
+
+  /* Deja SOLO la sección cuponera como hoja */
+  #appView{ display:block !important; }
+
+  #coupons.card{
+    border:none !important;
+    padding:0 !important;
+    box-shadow:none !important;
+    background:#fff !important;
+    break-after: auto !important;
+  }
+
+  /* Grid de cupones para imprimir bonito */
+  #couponGrid{
+    display:grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 10mm;
+  }
+
+  /* Tarjeta cupón */
+  .coupon{
+    border: 1px dashed #777 !important;
+    background:#fff !important;
+    box-shadow:none !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Ticket look */
+  .couponTicket{
+    grid-template-columns: 1fr 45mm !important; /* stub grande en print */
+    gap: 8mm !important;
+  }
+
+  .couponStub{
+    border-left: 2px dashed #777 !important;
+    padding-left: 6mm !important;
+  }
+
+  .couponTitle{
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    color:#000 !important;
+  }
+
+   .coupon::after{
+    content:"✂️ cortar aquí";
+    display:block;
+    margin-top: 6mm;
+    padding-top: 3mm;
+    border-top: 1px dashed #aaa;
+    font-size: 11px;
+    color:#444;
+    text-align:center;
+  }
+
+  .couponDesc,
+  .couponExtra,
+  .couponValid,
+  .stubLabel,
+  .stubCode,
+  .stubSmall,
+  .stubTiny{
+    color:#000 !important;
+  }
+
+  /* En impresión, siempre muestra los detalles */
+  .couponExtra{
+    display:block !important;
+    background:#fff !important;
+    border: 1px solid #eee !important;
+  }
+
+  /* No imprimir botones */
+  .couponActions{
+    display:none !important;
+  }
+
+  /* Si estás imprimiendo SOLO un cupón */
+  body.print-one #couponGrid .coupon{ display:none !important; }
+  body.print-one #couponGrid .coupon.print-target{
+    display:block !important;
+    width: 170mm !important;
+    margin: 0 auto !important;
+  }
+  body.print-one #couponGrid{
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+.couponActions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top: 10px;
+}
+
+.couponPrintBtn{
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.92);
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.couponPrintBtn:hover{
+  background: rgba(255,255,255,.10);
+}

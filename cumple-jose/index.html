@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sorpresa secreta 🎁</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+
+  <!-- LOGIN VIEW -->
+  <main class="wrap" id="loginView">
+    <header class="top">
+      <div class="badge">🔒 Portal privado</div>
+      <div class="muted">Administrar tu sorpresa</div>
+    </header>
+
+    <section class="card">
+      <h1 class="title">Administrar tu sorpresa 🎁</h1>
+      <p class="subtitle">
+        Ingresa tu <b>código de reserva</b> y <b>apellido</b> (están en tu boarding pass).
+      </p>
+
+      <div class="form">
+        <div class="field">
+          <label for="codeInput">Código de reserva</label>
+          <input id="codeInput" type="text" autocomplete="off" />
+        </div>
+
+        <div class="field">
+          <label for="lastNameInput">Apellido</label>
+          <input id="lastNameInput" type="text"  autocomplete="off" />
+        </div>
+
+        <button class="btn primary" id="loginBtn">Ingresar</button>
+
+        <p class="error" id="loginError" aria-live="polite"></p>
+
+        <div class="hint">
+          Tip: si te equivocas, revisa tu boarding pass 😤 (sobornos en abrazos son aceptados).
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer muted">
+      Hecho con amor y cero chill 💛
+    </footer>
+  </main>
+
+  <!-- APP VIEW -->
+  <main class="wrap hidden" id="appView">
+    <header class="top">
+      <div class="badge">🥳 Acceso concedido</div>
+      <div class="topActions">
+        <button class="btn ghost" id="playAudioBtn">🔊 Audio</button>
+        <button class="btn ghost" id="printBtn">🖨️ Imprimir cupones</button>
+        <button class="btn ghost" id="logoutBtn">Salir</button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="card hero">
+      <h1 class="title">Feliz cumpleaños, mi amor 🥳</h1>
+      <p class="subtitle">
+        Hoy es tu día y yo soy tu fan #1. Gracias por ser mi lugar seguro y mi alegría diaria.
+        <br/>
+        Hoy te celebro con todo mi corazón 😌💛
+      </p>
+
+      <div class="menu">
+        <button class="btn primary" data-go="coupons">🎟️ Cuponera</button>
+        <button class="btn" data-go="memories">📸 Recuerdos</button>
+        <button class="btn" data-go="terms">📜 Términos</button>
+        <button class="btn" data-go="final">💌 Mensaje final</button>
+      </div>
+
+      <div class="notice">
+        ⏳ Vigencia de cupones hasta: <b id="expiryText">03 de marzo</b>
+      </div>
+    </section>
+
+    <!-- COUPONS -->
+    <section class="card" id="coupons">
+      <div class="sectionTop">
+        <h2 class="sectionTitle">Cuponera de regalos 🎟️</h2>
+        <div class="muted">Toca un cupón para ver detalles. Imprime para redimir.</div>
+      </div>
+
+      <div class="couponGrid" id="couponGrid"></div>
+
+      <div class="printNote muted">
+        *Para redimir: presentar cupón impreso o mostrar en pantalla con cara de “cumpleañero oficial”.*
+      </div>
+    </section>
+
+    <!-- MEMORIES -->
+    <section class="card" id="memories">
+      <div class="sectionTop">
+        <h2 class="sectionTitle">Nuestros recuerdos 📸</h2>
+        <div class="muted">Ustedes, nosotros, y los mininos que mandan.</div>
+      </div>
+
+      <div class="mininos">
+        <div class="mininoCard">
+          <div class="mininoName">🐱 Maki</div>
+          <div class="muted">enojona, mandona, jefa del hogar.</div>
+        </div>
+        <div class="mininoCard">
+          <div class="mininoName">🐱 Panarabbit</div>
+          <div class="muted">el más comelón, el más tierno.</div>
+        </div>
+      </div>
+
+      <div class="photoGrid" id="photoGrid"></div>
+    </section>
+
+    <!-- TERMS -->
+    <section class="card" id="terms">
+      <div class="sectionTop">
+        <h2 class="sectionTitle">Términos & Condiciones 📜</h2>
+        <div class="muted">Porque esto es serio… pero no tanto 😌</div>
+      </div>
+
+      <ul class="termsList" id="termsList"></ul>
+    </section>
+
+    <!-- FINAL -->
+    <section class="card" id="final">
+      <div class="sectionTop">
+        <h2 class="sectionTitle">Para ti 💌</h2>
+        <div class="muted">Cierre de película (y con chiste escondido).</div>
+      </div>
+
+      <div class="finalText" id="finalText"></div>
+
+      <div class="finalActions">
+        <button class="btn primary" id="finalConfettiBtn">✨ Activar confeti otra vez</button>
+        <button class="btn" id="goCouponsBtn">🎟️ Volver a cuponera</button>
+      </div>
+    </section>
+
+    <!-- AUDIO (optional) -->
+    <audio id="audio" preload="auto">
+      <source src="assets/audio.mp3" type="audio/mpeg" />
+    </audio>
+  </main>
+
+  <!-- PHOTO MODAL -->
+  <div class="modal hidden" id="photoModal" role="dialog" aria-modal="true">
+    <div class="modalBackdrop" id="modalBackdrop"></div>
+    <div class="modalContent">
+      <button class="modalClose" id="modalCloseBtn" aria-label="Cerrar">✕</button>
+      <img id="modalImg" alt="Foto" />
+      <div class="modalCaption muted" id="modalCaption"></div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
